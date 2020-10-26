@@ -11,7 +11,7 @@ import { Container, SwitchView, MoonIcon, Title} from './styles';
 
 interface HeaderProps {
   title: string;
-  toggleTheme: () => void;
+  toggleTheme: () => Promise<void>;
 }
 
 export default function Header({ title, toggleTheme }: HeaderProps) {
