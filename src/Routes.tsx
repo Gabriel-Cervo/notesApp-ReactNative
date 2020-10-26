@@ -1,18 +1,17 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 import light from './Styles/themes/light';
 import dark from './Styles/themes/dark';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-
 import Home from './Screens/Home';
 import Header from './Components/Header';
-import usePersistentState from './utils/usePersistentState';
 
+import usePersistentState from './utils/usePersistentState';
 
 const { Navigator, Screen } = createStackNavigator();
 

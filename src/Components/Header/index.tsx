@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { Switch } from 'react-native';
 
-import { ThemeContext } from 'styled-components';
-
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
+import { ThemeContext } from 'styled-components';
+
+import { Feather } from '@expo/vector-icons';
+
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { Container, SwitchView, MoonIcon, Title} from './styles';
 
 interface HeaderProps {
