@@ -1,12 +1,13 @@
+import { styledThemeType } from 'styled-components';
 import styled from 'styled-components/native';
 
 import { Feather } from '@expo/vector-icons';
 
 export const Container = styled.View`
   padding: 24px;
-  background-color: ${props => props.theme.colors.headerBackground};
+  background-color: ${(props: styledThemeType) => props.theme.colors.headerBackground};
   border-bottom-width: 1px;
-  border-bottom-color: ${props => props.theme.colors.headerBorder};
+  border-bottom-color: ${(props: styledThemeType) => props.theme.colors.borderColor};
 
   padding-top: 44px;
 
@@ -26,7 +27,7 @@ export const MoonIcon = styled(Feather)`
 
 export const Title = styled.Text`
   font-family: 'Nunito_600SemiBold';
-  color: #8fa6b3;
+  color: ${(props: styledThemeType) => props.theme.colors.terciary};
   font-size: 16px;
-  margin-left: -35px;
+  margin-left: -70px;
 `;

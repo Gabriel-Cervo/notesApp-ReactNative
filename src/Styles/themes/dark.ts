@@ -4,10 +4,10 @@ export default {
     colors: {
       primary: '#121212',
       secondary: '#f0f0f0',
-      terciary: '#16213e',
+      terciary: '#8fa6b3',
 
       headerBackground: '#1e2125',
-      headerBorder: '#333456',
+      borderColor: '#495464',
       
       textOnPrimary: '#fff',
       textOnSecondary: '#fff',

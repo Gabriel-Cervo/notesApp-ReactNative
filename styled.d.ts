@@ -10,10 +10,28 @@ declare module 'styled-components' {
       terciary: string;
   
       headerBackground: string;
-      headerBorder: string;
+      borderColor: string;
   
       textOnPrimary: string;
       textOnSecondary: string;
     }
-  }
+  };
+
+  export interface styledThemeType {
+    theme: {
+      name: string;
+        
+      colors: {
+        primary: string;
+        secondary: string;
+        terciary: string;
+  
+        headerBackground: string;
+        borderColor: string;
+        
+        textOnPrimary: string;
+        textOnSecondary: string;
+      }
+    }
+  };
 }

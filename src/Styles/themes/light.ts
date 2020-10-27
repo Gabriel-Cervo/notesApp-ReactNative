@@ -7,7 +7,7 @@ export default {
     terciary: '#9ba4b4',
 
     headerBackground: '#f9fafc',
-    headerBorder: '#dde3f0',
+    borderColor: '#dde3f0',
 
     textOnPrimary: '#373a40',
     textOnSecondary: '#fff',
