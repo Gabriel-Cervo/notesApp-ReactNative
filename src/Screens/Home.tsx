@@ -1,40 +1,50 @@
-import React from 'react';
-import { SafeAreaView, View, FlatList } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { FlatList } from 'react-native';
 
 import { Container, safeAreaStyle } from '../Styles/screens/home';
 
+import { HomeScreenProps } from '../interfaces/screens';
+import { ListsType } from '../interfaces/lists';
+
 import Item from '../Components/Item';
 
-interface DataType {
-  item: {
-    id: string;
-    title: string;
-  }
-}
+export default function Home({ route }: HomeScreenProps) {
+  const [lists, setLists] = useState([] as ListsType[]);
+  
+  const addNewList = (item: ListsType): void => {
+    lists.map(list => {
+      if (list.title === item.title) {
+        return; // Lista com mesmo nome, arrumar popup de erro depois
+      }
+    });
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'Primeira Lista',
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Segunda Lista',
+    setLists(prev => [...prev, item])
   }
-];
 
-export default function Home() {
-  const renderItem = ({ item }: DataType) => (
-    <Item title={item.title} />
+  const handleDeleteList = (title: string) => {
+    setLists(prev => prev.filter(item => item.title !== title));
+  }
+
+  useEffect(() => {
+    const newList = route.params?.newList;
+
+    if (newList) {
+      addNewList(newList);
+    }
+  }, [route.params?.newList]);
+
+  const renderItem = ({ item }: { item: ListsType }) => (
+    <Item title={item.title} onDeleteItem={() => handleDeleteList(item.title)}/>
   );
 
   return (
     <Container style={safeAreaStyle.container}>
-      <FlatList 
-        data={DATA}
+      <FlatList<ListsType>
+        data={lists}
         renderItem={renderItem}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => item.title + index}
       />
+
     </Container>
   );
 }

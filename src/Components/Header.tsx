@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { Switch } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,40 +7,51 @@ import { ThemeContext } from 'styled-components';
 import { Feather } from '@expo/vector-icons';
 
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Container, SwitchView, MoonIcon, Title} from '../Styles/components/header';
+import { Container, Title } from '../Styles/components/header';
 
 interface HeaderProps {
   title: string;
   toggleTheme: () => Promise<void>;
+  hasCancelButton?: boolean;
 }
 
-export default function Header({ title, toggleTheme }: HeaderProps) {
+export default function Header({ title, toggleTheme, hasCancelButton }: HeaderProps) {
+
   const { name, colors } = useContext(ThemeContext);
-  
+
   const navigation = useNavigation();
 
-  function handleGoToAddList() {
-    navigation.navigate('NewList');
+  const goToAddListScreen = () => {
+    navigation.navigate('AddList');
+  }
+
+  const goToHomePage = () => {
+    navigation.navigate('Home');
   }
 
   return (
-      <Container>
-      
-      <SwitchView>
-        <Switch 
-          onValueChange={toggleTheme}
-          value={name === 'dark'}
-          thumbColor={colors.secondary}
-          trackColor={{true: colors.terciary, false: colors.secondary}}
-        />
-        <MoonIcon name="moon" size={20} color={colors.terciary} />
-      </SwitchView>
+    <Container>
+      <BorderlessButton onPress={toggleTheme}>
+        {name === 'light' ? (
+          <Feather name="moon" size={24} color={colors.terciary} />
+        ) : (
+            <Feather name="sun" size={24} color={colors.terciary} />
+          )
+        }
+      </BorderlessButton>
 
       <Title>{title}</Title>
-
-      <BorderlessButton onPress={handleGoToAddList}>
-        <Feather name="plus" size={24} color={colors.terciary} />
-      </BorderlessButton>
+      
+      {hasCancelButton ? (
+        <BorderlessButton onPress={goToHomePage}>
+          <Feather name="x" size={24} color="#ff669d" />
+        </BorderlessButton>
+      ) : (
+        <BorderlessButton onPress={goToAddListScreen}>
+          <Feather name="plus" size={24} color={colors.terciary} />
+        </BorderlessButton>
+      )}
+      
     </Container>
   );
 }

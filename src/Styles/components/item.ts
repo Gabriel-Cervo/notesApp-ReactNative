@@ -14,3 +14,7 @@ export const Title = styled.Text`
   color: ${(props: styledThemeType) => props.theme.colors.textOnPrimary};
   font-size: 16px;
 `;
+
+export const EmptyView = styled.View`
+  margin-right: 25px;
+`;

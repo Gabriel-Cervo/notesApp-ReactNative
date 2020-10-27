@@ -10,6 +10,6 @@ export default {
       borderColor: '#495464',
       
       textOnPrimary: '#fff',
-      textOnSecondary: '#fff',
+      textOnSecondary: 'rgba(0, 0, 0, .6)',
   }
 }
