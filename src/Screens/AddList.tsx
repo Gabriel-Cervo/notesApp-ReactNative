@@ -40,6 +40,7 @@ function AddList() {
         style={Illustration.png}
         source={require("../assets/pngs/newListIllustration.png")}
         resizeMode='cover'
+
       />
 
       <Title>Você está a um passo de se organizar melhor :)</Title>

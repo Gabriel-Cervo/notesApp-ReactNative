@@ -14,6 +14,7 @@ import AddList from './Screens/AddList';
 import Header from './Components/Header';
 
 import usePersistentState from './utils/usePersistentState';
+import { ListProvider } from './context/list';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -26,37 +27,39 @@ export default function Routes() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <Navigator initialRouteName="Home">
-          <Screen
-            name="Home"
-            component={Home}
-            options={{
-              header: () => (
-                <Header
-                  title="Suas Listas"
-                  toggleTheme={toggleTheme}
-                />
-              )
-            }}
-          />
+      <ListProvider>
+        <NavigationContainer>
+          <Navigator initialRouteName="Home">
+            <Screen
+              name="Home"
+              component={Home}
+              options={{
+                header: () => (
+                  <Header
+                    title="Suas Listas"
+                    toggleTheme={toggleTheme}
+                  />
+                )
+              }}
+            />
 
-          <Screen
-            name="AddList"
-            component={AddList}
-            options={{
-              header: () => (
-                <Header
-                  title="Adicionar nova lista"
-                  toggleTheme={toggleTheme}
-                  hasCancelButton
-                />
-              )
-            }}
-          />
+            <Screen
+              name="AddList"
+              component={AddList}
+              options={{
+                header: () => (
+                  <Header
+                    title="Adicionar nova lista"
+                    toggleTheme={toggleTheme}
+                    hasCancelButton
+                  />
+                )
+              }}
+            />
 
-        </Navigator>
-      </NavigationContainer>
+          </Navigator>
+        </NavigationContainer>
+      </ListProvider>
     </ThemeProvider>
   );
 }
