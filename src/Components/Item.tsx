@@ -6,14 +6,18 @@ import { Feather } from '@expo/vector-icons';
 
 import { BorderlessButton } from 'react-native-gesture-handler';
 
-import { Container, Title } from '../Styles/components/item';
+import { Container, EmptyView, Title } from '../styles/components/item';
+
+import { ListsType } from '../interfaces/lists';
 
 interface PropsType {
   title: string;
+  hasSubList?: boolean;
   onDeleteItem: () => void;
+  handleGoToSubList?: () => void;
 }
 
-function Item({ title, onDeleteItem }: PropsType) {
+function Item({ title, onDeleteItem, hasSubList = false, handleGoToSubList }: PropsType) {
   const { colors } = useContext(ThemeContext);
 
   return (
@@ -24,9 +28,14 @@ function Item({ title, onDeleteItem }: PropsType) {
       
       <Title>{title}</Title> 
       
-      <BorderlessButton onPress={() => {}}>
-        <Feather name="chevron-right" size={24} color={colors.terciary} />
-      </BorderlessButton>    
+      {hasSubList ? (
+        <BorderlessButton onPress={handleGoToSubList}>
+          <Feather name="chevron-right" size={24} color={colors.terciary} />
+        </BorderlessButton>   
+      ): (
+        <EmptyView />
+      )}
+       
     </Container>
   )
 }

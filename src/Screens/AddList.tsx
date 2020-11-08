@@ -9,7 +9,7 @@ import { ThemeContext } from 'styled-components';
 import { Container, safeAreaStyle, Title, Illustration, Button } from '../Styles/screens/addList';
 import { Feather } from '@expo/vector-icons';
 
-import InputText from '../Components/InputText';
+import InputText from '../components/InputText';
 
 function AddList() {
   const [text, setText] = useState("");

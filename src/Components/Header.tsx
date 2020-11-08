@@ -7,7 +7,7 @@ import { ThemeContext } from 'styled-components';
 import { Feather } from '@expo/vector-icons';
 
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Container, Title } from '../Styles/components/header';
+import { Container, Title } from '../styles/components/header';
 
 interface HeaderProps {
   title: string;

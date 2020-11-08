@@ -5,10 +5,20 @@ type RootStackParamList = {
     title: string;
     itens: Array<string>
   } };
+
+  SubList: {
+    title: string;
+    itens: Array<string>
+  };
 };
 
 type HomeScreenRouteProp = RouteProp<RootStackParamList, 'Home'>;
+type SubListScreenRouteProp = RouteProp<RootStackParamList, 'SubList'>;
 
 export type HomeScreenProps = {
   route: HomeScreenRouteProp;
 };
+
+export type  SubListScreenProps = {
+  route: SubListScreenRouteProp;
+}

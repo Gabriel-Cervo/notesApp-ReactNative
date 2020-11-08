@@ -1,6 +1,6 @@
 import React from 'react';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
-import { Container, Title, Input } from '../Styles/components/inputText';
+import { Container, Title, Input } from '../styles/components/inputText';
 
 interface PropTypes {
   title: string;

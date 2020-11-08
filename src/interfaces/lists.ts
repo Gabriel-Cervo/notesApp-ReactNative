@@ -3,6 +3,10 @@ export interface ListsType {
   itens: Array<string> | null
 }
 
+export interface SubListType {
+  title: string;
+}
+
 export interface ListContextData {
   lists: Array<ListsType>;
   addNewList(item: ListsType): void;
