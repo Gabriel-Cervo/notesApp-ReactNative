@@ -5,13 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 
-import light from './Styles/themes/light';
-import dark from './Styles/themes/dark';
+import light from './styles/themes/light';
+import dark from './styles/themes/dark';
 
-import Home from './Screens/Home';
-import AddList from './Screens/AddList';
+import Home from './screens/Home';
+import AddList from './screens/AddList';
 
-import Header from './Components/Header';
+import Header from './components/Header';
 
 import usePersistentState from './utils/usePersistentState';
 import { ListProvider } from './context/list';

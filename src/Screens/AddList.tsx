@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { ImageBackground, KeyboardAvoidingView, NativeSyntheticEvent, Platform, TextInputChangeEventData } from 'react-native';
+import { ImageBackground, Keyboard, NativeSyntheticEvent, Platform, TextInputChangeEventData } from 'react-native';
 
-import { useHeaderHeight } from '@react-navigation/stack';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import { useHeaderHeight } from '@react-navigation/stack';
 
 import { ThemeContext } from 'styled-components';
-import { Container, safeAreaStyle, Title, Illustration, Button } from '../Styles/screens/addList';
+import { Container, safeAreaStyle, Title, Illustration, Button, KeyboardView } from '../styles/screens/addList';
 import { Feather } from '@expo/vector-icons';
 
 import InputText from '../components/InputText';
@@ -26,6 +26,7 @@ function AddList() {
   }
 
   const handleAddNewList = () => {
+    Keyboard.dismiss;
     navigation.navigate('Home', {
       newList: {
         title: text,
@@ -43,23 +44,22 @@ function AddList() {
 
       />
 
-      <Title>Você está a um passo de se organizar melhor :)</Title>
+      <Title>Você está a um passo de se organizar melhor</Title>
 
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={headerHeight + 50}
-        style={{ flex: 1 }}
+      <KeyboardView
+        behavior={Platform.select({ android: undefined, ios: 'padding' })}
+        keyboardVerticalOffset={Platform.select({ ios: headerHeight + 64, android: headerHeight + 200 })}
       >
         <InputText
           title="Digite o nome da sua nova lista"
           value={text}
           onChange={handleChange}
         />
-
         <BorderlessButton onPress={handleAddNewList} style={Button.borderless}>
           <Feather name="plus" size={24} color={colors.terciary} />
         </BorderlessButton>
-      </KeyboardAvoidingView>
+
+      </KeyboardView>
     </Container>
   );
 }

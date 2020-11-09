@@ -8,7 +8,7 @@ export const safeAreaStyle = StyleSheet.create({
   }
 });
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.ScrollView`
   background-color: ${(props: styledThemeType) => props.theme.colors.primary};
   padding: 25px;
 `;
@@ -46,6 +46,20 @@ export const Title = styled.Text`
 export const Button = StyleSheet.create({
   borderless: {
     alignSelf: 'center',
-    marginTop: 25
   }
-}); 
+});
+
+export const KeyboardView = styled.KeyboardAvoidingView`
+  flex: 1; 
+  position: absolute;
+  bottom: -150px; 
+  min-height: 150px;
+  padding: 10px 5px;
+  background-color: ${(props: styledThemeType) => props.theme.colors.primary};
+  border-top-left-radius: 15px; 
+  border-top-color: ${(props: styledThemeType) => props.theme.colors.secondary};
+  border-top-width: 1px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px; 
+  border-bottom-right-radius: 15px;
+`;

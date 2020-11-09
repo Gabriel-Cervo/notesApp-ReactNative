@@ -8,8 +8,6 @@ import { BorderlessButton } from 'react-native-gesture-handler';
 
 import { Container, EmptyView, Title } from '../styles/components/item';
 
-import { ListsType } from '../interfaces/lists';
-
 interface PropsType {
   title: string;
   hasSubList?: boolean;

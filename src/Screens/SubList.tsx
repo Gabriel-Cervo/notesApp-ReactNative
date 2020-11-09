@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
 
-import { Container, safeAreaStyle } from '../Styles/screens/home';
+import { Container, safeAreaStyle } from '../styles/screens/home';
 
 import { SubListScreenProps } from '../interfaces/screens';
 import { ListsType, SubListType } from '../interfaces/lists';

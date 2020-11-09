@@ -3,10 +3,10 @@ import { FlatList } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { Container, safeAreaStyle } from '../Styles/screens/home';
+import { Container, safeAreaStyle } from '../styles/screens/home';
 
 import { HomeScreenProps } from '../interfaces/screens';
-import { ListsType, SubListType } from '../interfaces/lists';
+import { ListsType } from '../interfaces/lists';
 
 import Item from '../components/Item';
 import { useListContext } from '../context/list';
