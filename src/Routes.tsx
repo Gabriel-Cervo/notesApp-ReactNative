@@ -15,6 +15,7 @@ import Header from './components/Header';
 
 import usePersistentState from './utils/usePersistentState';
 import { ListProvider } from './context/list';
+import SubList from './screens/SubList';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -55,6 +56,20 @@ export default function Routes() {
                   />
                 )
               }}
+            />
+
+            <Screen
+              name="SubList"
+              component={SubList}
+              options={({
+                header: () => (
+                  <Header
+                    title="Itens na lista"
+                    toggleTheme={toggleTheme}
+                    hasCancelButton
+                  />
+                )
+              })}
             />
 
           </Navigator>
